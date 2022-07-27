@@ -1,0 +1,20 @@
+dataset:
+  class_name: "BinaryLabeledCOCODataset"
+  attributes:
+    image_directory_path: "resources/dataset/mixed_cars_and_coco/training/images"
+    annotation_file_path: "resources/dataset/mixed_cars_and_coco/training/annotations/annotation.json"
+
+loader:
+  shuffle: True
+  batch_size: 8
+
+model:
+  class_name: "VGG16PartDetectors"
+  attributes:
+    from_layer_number: 21
+    cdf_threshold: 0.95
+  output_name: "vgg16_layer_21_cdf_95"
+
+training:
+  device: "cuda"
+  maximum_iterations: null
