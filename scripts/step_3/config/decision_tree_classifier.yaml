@@ -9,12 +9,14 @@ loader:
   batch_size: 8
 
 model:
-  class_name: "VGG16PartDetectors"
+  class_name: "DTJointStructureClassifier"
   attributes:
-    from_layer_number: 21
+    probability_threshold: 0.50
+    min_samples_split: 60
+    max_depth: 4
 
 run:
   device: "cuda"
   maximum_iterations: null
-  cdf_threshold: 0.95
   part_detectors_model_file_name: "part_detectors_vgg16_layer_21_cdf_95"
+  joint_structure_model_file_name: "joint_structure_decision_tree_classifier"
